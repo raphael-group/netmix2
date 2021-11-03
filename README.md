@@ -1,3 +1,3 @@
-# netmix2
+# NetMix2
 
 Work in progress!
