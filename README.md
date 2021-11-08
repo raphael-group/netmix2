@@ -7,7 +7,6 @@ This repository includes instructions for installation and tutorials using examp
 *This README is work in progress.*
 
 ## Algorithm
---------------
 
 <img src="doc/netmix2_overview.png" width="600">
 
@@ -20,7 +19,6 @@ For step 1, NetMix2 uses local false discovery (local FDR) method to estimate th
 For step 2, NetMix2 identifies the altered subnetwork with size estimated from step 1 and largest total vertex scores from an input subnetwork family. By default, NetMix2 uses the propagation family which approximates the altered subnetworks found by network propagation, thereby unifying the principles of network propagation with altered subnetwork identification.
 
 ## Setup
---------------
 
 Setting up NetMix2 requires the following steps:
 
@@ -53,7 +51,6 @@ Detailed instructions for running NetMix2 including the input file format and co
 
 
 ## Usage
-----------
 
 NetMix2 uses the *propagation family* by default.  
 For this subnetwork family, NetMix2 constructs the similarity threshold graph using a similarity matrix where each entry in the matrix is the Personalized PageRank between a pair of vertices in the original graph.
@@ -108,7 +105,7 @@ NetMix2 outputs a list of vertices corresponding to the altered subnetwork. Each
 
 
 ## Additional information
---------
+
 ### Tutorial
 A tutorial with step-by-step instructions for NetMix2 is available in the Jupyter notebook.
 
@@ -134,7 +131,7 @@ Execution command:
 Please refer to the NetMix2 manuscript for defition of each subnetwork family.
 
 ## Contacts
-----------
+
 NetMix2 has been developed by members of the research group of prof. Ben Raphael at Princeton University.
 For any related question, please email Uthsav Chitra (uchitra@princeton.edu) or Tyler Park (typark@princeton.edu).
 
