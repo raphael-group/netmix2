@@ -11,7 +11,7 @@ This repository includes instructions for installation and tutorials using examp
 
 <img src="doc/netmix2_overview.png" width="600">
 
-The main goal of NetMix2 is to identify an altered subnetwork $A$ in a subnetwork family $\mathcal{S}$ from a graph $G=(V,E)$ with gene scores $X_v$ for all $v \in V$.  
+The main goal of NetMix2 is to identify the altered subnetwork in a subnetwork family from an interaction network of genes with gene scores.  
 NetMix2 consists of two main steps:
 1. Estimate the size of altered subnetwork.
 2. Identify the altered subnetwork from a subnetwork family.
@@ -41,7 +41,7 @@ We recommend `virtualenv` or `conda` for managing the required dependencies.
 - Matpotlib
 - pandas
 - statsmodels
-- locfdr-python (v0.1a) - available at https://github.com/leekgroup/locfdr-python
+- locfdr-python (v0.1a)
 - Gurobi
 
 ### Testing NetMix2
@@ -56,16 +56,16 @@ Detailed instructions for running NetMix2 including the input file format and co
 ----------
 
 NetMix2 uses the *propagation family* by default.  
-For this subnetwork family, NetMix2 constructs a similarity threshold graph $G_\delta$ using the similarity matrix $M \in \mathbb{R}^{|V|\times|V|}$ where $M_{v, w}$ is the Personalized PageRank from vertex $v$ to vertex $w$.  
-The propagation family $\mathcal{M}_{\delta,p}$ is then equal to the edge-dense family $\mathcal{E}_{G_\delta,p}$ for the similarity threshold graph $G_\delta = (V, E_\delta)$ which has edge $(v, w)$ if $M_{v,w} \geq \delta$ and $M_{w,v} \geq \delta$.
+For this subnetwork family, NetMix2 constructs the similarity threshold graph using a similarity matrix where each entry in the matrix is the Personalized PageRank between a pair of vertices in the original graph.
+The propagation family is then equal to the edge-dense family for the similarity threshold graph.
 
 Instructions for using other subnetwork families are described in Additional Infromation.
 
 ### Input
 
-NetMix2 requires two tab-separated text file - an edge list for interaction network $G$ and a gene scores file $X$. 
+NetMix2 requires two tab-separated text file - an edge list for interaction network and a gene scores file. 
 
-The following example demonstrates a network with three vertices `A`, `B`, and `C` that have gene scores ($p$-values) of `0.1`, `0.5`, and `0.9`, respectively.
+The following example demonstrates a network with three vertices `A`, `B`, and `C` that have gene scores (P-values) of `0.1`, `0.5`, and `0.9`, respectively.
 
 
 #### Edge list file
@@ -83,8 +83,8 @@ Each line in this file associates a node with a score:
 
 #### Parameters for the propagation family
 In addition to the files above, running NetMix2 using the propagation family requires two family-specific parameters:
-- Similarity threshold $\delta$. Alternatively, users can choose the number of edges $|E_\delta|$ for the similarity threshold graph $G_\delta$.
-- The minimum edge density $p$ of the altered subnetwork in $G_\delta$.
+- Similarity threshold. Alternatively, users can choose the number of edges in the similarity threshold graph.
+- The minimum edge density of the altered subnetwork in the similarity threshold graph.
 
 Below are the command line options for NetMix2.
 
@@ -93,15 +93,15 @@ Below are the command line options for NetMix2.
 | --- | --- | --- | --- |
 | -el | edge_list | Edge list file | None |
 | -gs | gene_scores | Gene-to-score file | None |
-| -d | delta | The similarity threshold $\delta$ for $G_\delta$ | 175,000 |
-| -ne | num_edges | The number of edges in $G_\delta$ | 175,000 |
-| -p | density | The minimum edge density $p$ of the altered subnetwork in $G_\delta$ | 0.05 |
+| -d | delta | The similarity threshold | 175,000 |
+| -ne | num_edges | The number of edges in similarity threshold graph | 175,000 |
+| -p | density | The minimum edge density of the altered subnetwork | 0.05 |
 | -t | time_limit | Time limit for running the Gurobi solver | 12 (hours) | 
 | -o | output | Directory for the NetMix2 output | None
 
 
 ### Output
-NetMix2 outputs a list of vertices corresponding to the altered subnetwork $\hat{A}_{NetMix2}$. Each line in the output file is a vertex:
+NetMix2 outputs a list of vertices corresponding to the altered subnetwork. Each line in the output file is a vertex:
 
     B
     C
@@ -115,17 +115,17 @@ A tutorial with step-by-step instructions for NetMix2 is available in the Jupyte
 ### Running NetMix2 using other subnetwork families
 In addition to the propagation family, users can also choose to run NetMix2 using one of the following subnetwork families:
 
-- Connected family $\mathcal{C}_G$
+- Connected family 
 
 Execution command:  
 ` python run_netmix2_connected -el [EDGE_LIST] -gs [GENE_SCORES] (-o [OUTDIR])`
 
-- Edge-dense family $\mathcal{E}_{G,p}$
+- Edge-dense family  
 
 Execution command:  
 ` python run_netmix2_edge_dense -el [EDGE_LIST] -gs [GENE_SCORES] -p [MINIMUM_EDGE_DENSITY] (-o [OUTDIR])`
 
-- Cut family $\mathcal{T}_{G,\rho}$
+- Cut family 
 
 Execution command:  
 ` python run_netmix2_connected -el [EDGE_LIST] -gs [GENE_SCORES] -rho [MAXIMUM_CUTSIZE] (-o [OUTDIR])`
