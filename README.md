@@ -39,8 +39,10 @@ We recommend `virtualenv` or `conda` for managing the required dependencies.
 - Matpotlib
 - pandas
 - statsmodels
-- locfdr-python (v0.1a)
 - Gurobi
+
+In addition, NetMix2 requires locfdr-python (v0.1a) package from https://github.com/leekgroup/locfdr-python.
+Users can choose to install the code from the original source or use the code in this repo which we modified to use with Python 3.
 
 ### Testing NetMix2
 NetMix2 using the *propagation family* can be executed on example data using the following command.
