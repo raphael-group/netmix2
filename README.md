@@ -88,15 +88,15 @@ In addition to the files above, running NetMix2 using the propagation family req
 Below are the command line options for NetMix2.
 
 ### NetMix2 (*propagation family*) command line options
-| Flag | Name | Description | Default Value |
-| --- | --- | --- | --- |
-| -el | edge_list | Edge list file | None |
-| -gs | gene_scores | Gene-to-score file | None |
-| -d | delta | The similarity threshold | 175,000 |
-| -ne | num_edges | The number of edges in similarity threshold graph | 175,000 |
-| -p | density | The minimum edge density of the altered subnetwork | 0.05 |
-| -t | time_limit | Time limit for running the Gurobi solver | 12 (hours) | 
-| -o | output | Directory for the NetMix2 output | None
+| Flag | Name | Description |
+| --- | --- | --- | 
+| -el | edge_list | Edge list file | 
+| -gs | gene_scores | Gene-to-score file |
+| -d | delta | The similarity threshold |
+| -ne | num_edges | The number of edges in similarity threshold graph | 
+| -p | density | The minimum edge density of the altered subnetwork |
+| -t | time_limit | Time limit for running the Gurobi solver | 
+| -o | output | Directory for the NetMix2 output |
 
 
 ### Output
