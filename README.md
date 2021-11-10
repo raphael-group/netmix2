@@ -117,17 +117,17 @@ In addition to the propagation family, users can also choose to run NetMix2 usin
 - Connected family 
 
 Execution command:  
-` python run_netmix2_connected -el [EDGE_LIST] -gs [GENE_SCORES] (-o [OUTDIR])`
+` python run_netmix2_connected.py -el [EDGE_LIST] -gs [GENE_SCORES] (-o [OUTDIR])`
 
 - Edge-dense family  
 
 Execution command:  
-` python run_netmix2_edge_dense -el [EDGE_LIST] -gs [GENE_SCORES] -p [MINIMUM_EDGE_DENSITY] (-o [OUTDIR])`
+` python run_netmix2_edge_dense.py -el [EDGE_LIST] -gs [GENE_SCORES] -p [MINIMUM_EDGE_DENSITY] (-o [OUTDIR])`
 
 - Cut family 
 
 Execution command:  
-` python run_netmix2_connected -el [EDGE_LIST] -gs [GENE_SCORES] -rho [MAXIMUM_CUTSIZE] (-o [OUTDIR])`
+` python run_netmix2_cut.py -el [EDGE_LIST] -gs [GENE_SCORES] -rho [MAXIMUM_CUTSIZE] (-o [OUTDIR])`
 
 
 Please refer to the NetMix2 manuscript for defition of each subnetwork family.
