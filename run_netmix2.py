@@ -49,7 +49,7 @@ def run(args):
     ###########################################################
     # correct the nans in the locfdr
     nonnull_count = correct_nans_from_locfdr(r_locfdr, zscores, nulltype_name)
-    if args.verbosity > 0:
+    if args.verbose > 0:
         print(nonnull_count)
     ##################################################
     # Compute PPR matrix
@@ -96,7 +96,7 @@ def run(args):
     ###########################################################
     # print solution
     solution_size = len(est_subnetwork)
-    est_subnetwork_genes = node_list_network_gwas[est_subnetwork] if solution_size>0 else []
+    est_subnetwork_genes = node_list[est_subnetwork] if solution_size>0 else []
 
     solution_network = sim_mat_delta[np.ix_(est_subnetwork, est_subnetwork)] if solution_size>0 else None
     num_edges_in_solution = sum(sum(solution_network))/2 if solution_size>0 else 0
