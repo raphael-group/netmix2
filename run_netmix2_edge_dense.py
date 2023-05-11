@@ -49,7 +49,7 @@ def run(args):
     ###########################################################
     # correct the nans in the locfdr
     nonnull_count = correct_nans_from_locfdr(r_locfdr, zscores, nulltype_name)
-    if args.verbosity > 0:
+    if args.verbose > 0:
         print(nonnull_count)
     ###########################################################
     # parameters for netmix
