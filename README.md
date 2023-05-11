@@ -45,9 +45,9 @@ In addition, NetMix2 requires locfdr-python (v0.1a) package from https://github.
 Users can choose to install the code from the original source or use the code in this repo which we modified to use with Python 3.
 
 ### Testing NetMix2
-NetMix2 using the *propagation family* can be executed on example data using the following command.
+NetMix2 using the *propagation family* can be executed on example data using the following command. This command will save the results of NetMix2 in "results" directory.
 ```
-python run_netmix2.py -el data/edge_list.tsv -gs data/gene_scores.tsv -o results/example_output.tsv
+python run_netmix2.py -el data/edge_list.tsv -gs data/gene_scores.tsv -o results
 ```
 Detailed instructions for running NetMix2 including the input file format and command-line options are described below. 
 
