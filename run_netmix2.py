@@ -91,8 +91,11 @@ def run(args):
     if args.verbose > 0:
         print('running netmix')
         print("time_limit", args.time_limit)
+        gurobi_output = True
+    else:
+        gurobi_output = False
 
-    est_subnetwork = netmix_edgedense(sim_mat_delta, rho, zscores, alpha, edge_dense_linear=True, time_limit=3600*args.time_limit)
+    est_subnetwork = netmix_edgedense(sim_mat_delta, rho, zscores, alpha, edge_dense_linear=True, output=gurobi_output, time_limit=3600*args.time_limit)
     ###########################################################
     # print solution
     solution_size = len(est_subnetwork)
